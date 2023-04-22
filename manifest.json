@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "YouTube BackInTime",
   "version": "0.0.3",
-  "description": "This extension adds a back button functionality to YouTube when accidentally skipping a video. \n Python brrrrr",
+  "description": "This extension adds a Hotkey "B" to YouTube for back when random rewind a video. \n Python brrrrr",
   "permissions": [
     "tabs",
     "activeTab"
