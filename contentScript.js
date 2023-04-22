@@ -25,6 +25,12 @@ var startTime = 0;
 // Обрабатываем событие, когда изменяется текущее время воспроизведения видео
 document.querySelector("video").addEventListener("timeupdate", handleTimeUpdate);
 
+// Переход на другое видео
+document.querySelector("video").addEventListener("loadedmetadata", function() {
+  previousTime = 0;
+  startTime = 0;
+});
+
 // Обрабатываем нажатие на клавишу "B" на любой раскладке клавиатуры
 document.addEventListener("keydown", function(event) {
   if (event.code.includes("KeyB")) {
