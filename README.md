@@ -1,3 +1,3 @@
 # BackInTime
-This extension adds a Hotkey "B" to YouTube for back when accidentally skipping a video.
+This extension adds a Hotkey "B" to YouTube for back when random rewind a video.
 Python trainee play with ChatGPT.
