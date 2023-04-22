@@ -1,35 +1,33 @@
 function handleTimeUpdate(_event){
-   // Сохраняем текущее время воспроизведения
    var currentTime = this.currentTime;
-   // Если прошло достаточно времени обновляем startTime
+   // Update the startTime if duration of continuous viewing enough
    if (currentTime - previousTime > 6 && currentTime - previousTime < 7) {
      previousTime = currentTime;
      startTime = currentTime;
    }
-   // Костыль?! addEventListener("seeking", function() работает через раз
-   if (currentTime - previousTime > 7) {
-     previousTime = currentTime;
-   }
- 
-   if (currentTime - previousTime < -5) {
+   // Detect move in video position || keyboard arrow exception
+   if (currentTime - previousTime > 7 || currentTime - previousTime < -7) {
      previousTime = currentTime;
    }
 }
 
-// Сохраняем предыдущую позицию воспроизведения видео
-var previousTime = 0;
-// Сохраняем время непрерывного просмотра
-var startTime = 0;
+function resetVariables(){
+  CurrentTime = 0;
+  previousTime = 0;
+  startTime = 0;
+}
+
+// Update default variables
+resetVariables();
 
 
 // Обрабатываем событие, когда изменяется текущее время воспроизведения видео
 document.querySelector("video").addEventListener("timeupdate", handleTimeUpdate);
 
-// Переход на другое видео
-document.querySelector("video").addEventListener("loadedmetadata", function() {
-  previousTime = 0;
-  startTime = 0;
-});
+
+// Open/next video
+document.querySelector("video").addEventListener("loadedmetadata", resetVariables);
+
 
 // Обрабатываем нажатие на клавишу "B" на любой раскладке клавиатуры
 document.addEventListener("keydown", function(event) {
